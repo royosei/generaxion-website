@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — GeneraXion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-stamp">GX</span>
+      GeneraXion
+    </a>
+    <nav class="nav-links">
+      <button class="logout-link" id="logoutBtn">Log out</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container section">
+  <div class="welcome-banner">
+    <div>
+      <h1 id="welcomeHeading">Welcome back…</h1>
+      <p>Here's what's coming up.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">
+    <h2>Upcoming events</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="event-grid" id="eventsContainer">
+    <p class="empty-state">Loading events…</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">&copy; 2026 GeneraXion</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/events.js"></script>
+<script>
+  (async () => {
+    const session = await requireLogin(); // redirects to login.html if not signed in
+    if (!session) return;
+
+    const userId = session.user.id;
+
+    // Fetch this member's profile for a personalized greeting.
+    const { data: profile } = await supabaseClient
+      .from("profiles")
+      .select("full_name")
+      .eq("id", userId)
+      .single();
+
+    document.getElementById("welcomeHeading").textContent =
+      `Welcome back, ${profile?.full_name || "member"}`;
+
+    const events = await fetchUpcomingEvents();
+    await renderMemberEvents(events, document.getElementById("eventsContainer"), userId);
+  })();
+
+  document.getElementById("logoutBtn").addEventListener("click", signOut);
+</script>
+
+</body>
+</html>

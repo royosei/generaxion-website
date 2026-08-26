@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — GeneraXion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="index.html" class="brand">
+          <span class="brand-stamp">GX</span>
+          GeneraXion
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="about.html">About</a>
+          <a href="index.html#events">Events</a>
+          <a href="login.html">Log in</a>
+          <a href="signup.html" class="btn">Join us</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="quote-section">
+      <div class="container">
+        <h1>About Us</h1>
+    </section>
+
+    <main class="container section">
+      <div class="section-heading">
+        <h2>Our Vision</h2>
+        <div class="rule"></div>
+      </div>
+      <p>
+        To see a global network of spiritually awakened believers who live by
+        faith in Jesus Christ, walk in holiness, and operate as influential
+        ambassadors of the Kingdom of God across every sphere of society
+      </p>
+
+      <div class="section-heading" style="margin-top: 40px">
+        <h2>Our Mission</h2>
+        <div class="rule"></div>
+      </div>
+      <p>
+        To know Jesus Christ deeply in the Holy Spirit and make Him known
+        everywhere by preaching the gospel of rebirth, discipling believers into
+        maturity, and raising purpose-driven individuals who influence society
+        through kingdom principles.We are committed to helping people discover
+        their God-given purpose, develop their spiritual and personal capacity,
+        and deploy their lives to fulfill divine destiny.
+      </p>
+
+      <div class="section-heading" style="margin-top: 40px">
+        <h2>Our Mandate</h2>
+        <div class="rule"></div>
+      </div>
+      <p>• Preach the rebirth message of Jesus Christ</p>
+      <p>• Raise Spirit-filled disciples</p>
+      <p>• Build a network army of believers in the Holy Spirit</p>
+      <p>• Restore the spirit of authentic apostolic Christianity</p>
+      <p>• Advance the Kingdom of God across every sphere of society.</p>
+
+      <div class="section-heading" style="margin-top: 40px">
+        <h2>Our Core Beliefs</h2>
+        <div class="rule"></div>
+      </div>
+      <p>We believe:</p>
+      <p>• The Bible is the inspired Word of God.</p>
+      <p>• Jesus Christ is Lord and Savior.</p>
+      <p>• Salvation comes through faith in Jesus Christ alone.</p>
+      <p>• The Holy Spirit empowers believers for victorious living.</p>
+      <p>• The Church is the Body of Christ called to influence the world.</p>
+
+      <div style="text-align: center; margin-top: 50px">
+        <a href="signup.html" class="btn btn-primary">Become a member</a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <a href="index.html" class="brand" style="color: var(--parchment)">
+            <span class="brand-stamp">GX</span>
+            GeneraXion
+          </a>
+          <nav class="footer-links">
+            <a href="about.html">About</a>
+            <a href="index.html#events">Events</a>
+            <a href="signup.html">Join</a>
+            <a href="login.html">Log in</a>
+          </nav>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="TikTok">TT</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 GeneraXion. With a purpose.</span>
+          <span>Built with Supabase + Vercel</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script>
+      (async () => {
+        const {
+          data: { session },
+        } = await supabaseClient.auth.getSession();
+        if (session) {
+          document.getElementById("navLinks").innerHTML =
+            `<a href="about.html">About</a><a href="index.html#events">Events</a><a href="dashboard.html" class="btn">Dashboard</a>`;
+        }
+      })();
+    </script>
+  </body>
+</html>

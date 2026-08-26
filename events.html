@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events — GeneraXion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-stamp">GX</span>
+      GeneraXion
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="login.html">Log in</a>
+      <a href="signup.html" class="btn">Join us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding: 50px 0 60px;">
+  <div class="container">
+    <h1>Upcoming events</h1>
+    <p class="lead">Everything coming up at GeneraXion. Log in to RSVP and keep track of what you're going to.</p>
+  </div>
+</section>
+
+<main class="container section">
+  <div class="event-grid" id="eventsContainer">
+    <p class="empty-state">Loading events…</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="brand" style="color: var(--parchment);">
+        <span class="brand-stamp">GX</span>
+        GeneraXion
+      </a>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="signup.html">Join</a>
+        <a href="login.html">Log in</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TT</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 GeneraXion. With a purpose.</span>
+      <span>Built with Supabase + Vercel</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/events.js"></script>
+<script>
+  // If a member is already logged in, swap the nav to point at their dashboard.
+  (async () => {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session) {
+      document.getElementById("navLinks").innerHTML =
+        `<a href="about.html">About</a><a href="events.html">Events</a><a href="dashboard.html" class="btn">Dashboard</a>`;
+    }
+  })();
+
+  // Load and render the public event list.
+  (async () => {
+    const events = await fetchUpcomingEvents();
+    renderPublicEvents(events, document.getElementById("eventsContainer"));
+  })();
+</script>
+
+</body>
+</html>

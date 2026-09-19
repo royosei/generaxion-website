@@ -10,8 +10,9 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+    />
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -19,12 +20,17 @@
     <header class="site-header">
       <div class="container">
         <a href="index.html" class="brand">
-          <span class="brand-stamp">GX</span>
-          GeneraXion
+          <img
+            src="images/logo.jpeg"
+            alt="GeneraXion logo"
+            class="brand-stamp"
+          />
+          GeneraXion<span class="brand-tagline">With a Purpose</span>
         </a>
         <nav class="nav-links" id="navLinks">
           <a href="about.html">About</a>
           <a href="events.html">Events</a>
+          <a href="register-camp.html" class="btn">Register for Camp</a>
           <a href="login.html">Log in</a>
           <a href="signup.html" class="btn">Join us</a>
         </nav>
@@ -64,7 +70,7 @@
       ></div>
       <div class="scrim"></div>
       <div class="hero-content">
-        <div class="hero-eyebrow">GeneraXion Youth Movement</div>
+        <div class="hero-eyebrow">G-WAP! LIVE FULL, DIE FINISHED!</div>
         <h1>GeneraXion — With a Purpose</h1>
         <p class="hero-meta">
           A community for young people to grow, connect, and make an impact —
@@ -158,59 +164,66 @@
       </div>
       <div class="team-grid">
         <div class="team-card">
-          <img
-            src="images/jonah.jpeg"
-            alt="Jonah"
-            style="
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              border-radius: 10px;
-            "
-          />
-
+          <div class="team-photo">
+            <img
+              src="images/jonah.jpeg"
+              alt="Jonah"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+              "
+            />
+          </div>
           <h3>Aps. Jonathan Christ Amartey</h3>
           <p>Founder / Lead</p>
         </div>
         <div class="team-card">
-          <img
-            src="images/REE.jpeg"
-            alt="Second Person's Name"
-            style="
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              border-radius: 10px;
-            "
-          />
+          <div class="team-photo">
+            <img
+              src="images/REE.jpeg"
+              alt="Agnes"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+              "
+            />
+          </div>
           <h3>Mrs Agnes Christ Amartey</h3>
           <p>Teens Cordinator</p>
         </div>
         <div class="team-card">
-          <img
-            src="images/logo.jpeg"
-            alt="Second Person's Name"
-            style="
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              border-radius: 10px;
-            "
-          />
+          <div class="team-photo">
+            <img
+              src="images/logo.jpeg"
+              alt="Volunteer"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+              "
+            />
+          </div>
           <h3>Volunteer Name</h3>
           <p>Community</p>
         </div>
         <div class="team-card">
-          <img
-            src="images/logo.jpeg"
-            alt="Second Person's Name"
-            style="
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              border-radius: 10px;
-            "
-          />
+          <div class="team-photo">
+            <img
+              src="images/logo.jpeg"
+              alt="Volunteer"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+              "
+            />
+          </div>
           <h3>Volunteer Name</h3>
           <p>Media</p>
         </div>
@@ -352,12 +365,17 @@
       <div class="container">
         <div class="footer-top">
           <a href="index.html" class="brand" style="color: var(--parchment)">
-            <span class="brand-stamp">GX</span>
-            GeneraXion
+            <img
+              src="images/logo.jpeg"
+              alt="GeneraXion logo"
+              class="brand-stamp"
+            />
+            GeneraXion With a Purpose
           </a>
           <nav class="footer-links">
             <a href="about.html">About</a>
             <a href="events.html">Events</a>
+            <a href="register-camp.html" class="btn">Register for Camp</a>
             <a href="signup.html">Join</a>
             <a href="login.html">Log in</a>
           </nav>
